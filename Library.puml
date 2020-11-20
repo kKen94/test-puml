@@ -1,0 +1,38 @@
+!define ICONURL https://raw.githubusercontent.com/tupadr3/plantuml-icon-font-sprites/v2.2.0
+!includeurl ICONURL/common.puml
+!includeurl ICONURL/devicons/mysql.puml
+!includeurl ICONURL/devicons2/oracle_original.puml
+!includeurl ICONURL/font-awesome/server.puml
+!includeurl ICONURL/font-awesome-5/database.puml
+
+
+
+' Colors
+' ##################################
+
+!define ELEMENT_FONT_COLOR #FFFFFF
+!define ORACLE_BG_COLOR #710000
+
+' Styling
+' ##################################
+
+!define TECHN_FONT_SIZE 12
+
+skinparam defaultTextAlignment center
+
+skinparam wrapWidth 200
+skinparam maxMessageSize 150
+
+' ###################################
+' ORACLE
+' ###################################
+
+skinparam rectangle<<oracle_module>> {
+    StereotypeFontColor ELEMENT_FONT_COLOR
+    FontColor ELEMENT_FONT_COLOR
+    BackgroundColor ORACLE_BG_COLOR
+    BorderColor ORACLE_BG_COLOR
+}
+
+!define OracleModule(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr\n\n <$oracle_original>" <<oracle_module>> as e_alias
+
