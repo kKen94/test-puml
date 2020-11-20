@@ -19,7 +19,6 @@
 !define TECHN_FONT_SIZE 12
 
 skinparam defaultTextAlignment center
-
 skinparam wrapWidth 200
 skinparam maxMessageSize 150
 
@@ -34,5 +33,12 @@ skinparam rectangle<<oracle_module>> {
     BorderColor ORACLE_BG_COLOR
 }
 
-!define OracleModule(e_alias, e_label, e_descr) rectangle "==e_label\n\n e_descr\n\n <$oracle_original>" <<oracle_module>> as e_alias
+'!define OracleModule(e_alias, e_label) rectangle "==e_label" <<oracle_module>> as e_alias
+'!define OracleModule(e_alias, e_label, e_descr) rectangle "==e_label\n<size:TECHN_FONT_SIZE>[e_descr]</size>" <<oracle_module>> as e_alias
+
+!define OracleModule(e_alias, e_label, e_techn) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//" <<oracle_module>> as e_alias
+!define OracleModule(e_alias, e_label, e_techn, e_descr) rectangle "==e_label\n//<size:TECHN_FONT_SIZE>[e_techn]</size>//\n\n e_descr" <<oracle_module>> as e_alias
+
+!define OracleModule_Boundary(e_alias, e_label) Boundary(e_alias, e_label, "OracleModule")
+
 
